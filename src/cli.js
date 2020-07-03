@@ -17,7 +17,8 @@ const argv = require("yargs")
       .options("v", {
         alias: "value",
         demandOption: true,
-        describe: "Tag value or values to search with",
+        describe:
+          "Tag value or values to search with (if using multiple values, provide comma separated list with no whitespaces)",
         type: "string"
       })
       .options("f", {

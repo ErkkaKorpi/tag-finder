@@ -32,7 +32,9 @@ Options:
   --version      Show version number                                   [boolean]
   -h, --help     Show help                                             [boolean]
   -k, --key      Tag key to search with                      [string] [required]
-  -v, --value    Tag value or values to search with          [string] [required]
+  -v, --value    Tag value or values to search with (if using multiple values,
+                 provide comma separated list with no whitespaces)
+                                                             [string] [required]
   -f, --file     Output search results to file              [boolean] [required]
   -p, --profile  AWS profile name                                       [string]
 
