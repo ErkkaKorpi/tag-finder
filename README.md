@@ -5,6 +5,8 @@ tag-finder is a CLI tool to find tagged resources from AWS by specifying key and
 ## Installation
 
 ```npm run install-app```
+- Installs dependencies and runs ```npm link``` that creates symbolic link to ```app.js```
+
 
 ## Usage
 
