@@ -1,6 +1,6 @@
 # Tag-Finder
 
-Tag-Finder is a CLI tool to find tagged resources from AWS by specifying key and value. By default, results are written to stdout in JSON format.
+Tag-Finder is a CLI tool to find tagged resources from across all AWS regions by specifying key and value. By default, results are written to stdout in JSON format.
 
 - ``--key`` argument represents tag key to search resources with
 
@@ -28,11 +28,6 @@ Options:
   --version   Show version number                                      [boolean]
   -h, --help  Show help                                                [boolean]
 
-```
-
-## Find
-
-```
 tagfinder find
 
 find resources with specified tags
@@ -47,6 +42,95 @@ Options:
   -f, --file     Output search results to file                         [boolean]
   -p, --profile  AWS profile name                                       [string]
 
+
+```
+
+## Example
+```
+tagfinder find --key important --value true --file true
+```
+## Example output
+```
+[
+  {
+    "region": "eu-north-1",
+    "resources": "no resources with specified tags in this region"
+  },
+  {
+    "region": "ap-south-1",
+    "resources": "no resources with specified tags in this region"
+  },
+  {
+    "region": "eu-west-3",
+    "resources": "no resources with specified tags in this region"
+  },
+  {
+    "region": "eu-west-2",
+    "resources": "no resources with specified tags in this region"
+  },
+  {
+    "region": "eu-west-1",
+    "resources": [
+      {
+        "resourceType": "ec2",
+        "resourceName": "subnet/subnet-1234567"
+      }
+    ]
+  },
+  {
+    "region": "ap-northeast-2",
+    "resources": "no resources with specified tags in this region"
+  },
+  {
+    "region": "ap-northeast-1",
+    "resources": "no resources with specified tags in this region"
+  },
+  {
+    "region": "sa-east-1",
+    "resources": "no resources with specified tags in this region"
+  },
+  {
+    "region": "ca-central-1",
+    "resources": "no resources with specified tags in this region"
+  },
+  {
+    "region": "ap-southeast-1",
+    "resources": "no resources with specified tags in this region"
+  },
+  {
+    "region": "ap-southeast-2",
+    "resources": "no resources with specified tags in this region"
+  },
+  {
+    "region": "eu-central-1",
+    "resources": [
+      {
+        "resourceType": "lambda",
+        "resourceName": "example-function"
+      },
+      {
+        "resourceType": "s3",
+        "resourceName": "example-bucket-1"
+      }
+    ]
+  },
+  {
+    "region": "us-east-1",
+    "resources": "no resources with specified tags in this region"
+  },
+  {
+    "region": "us-east-2",
+    "resources": "no resources with specified tags in this region"
+  },
+  {
+    "region": "us-west-1",
+    "resources": "no resources with specified tags in this region"
+  },
+  {
+    "region": "us-west-2",
+    "resources": "no resources with specified tags in this region"
+  }
+]
 ```
 
 ## License
