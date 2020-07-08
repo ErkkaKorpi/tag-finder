@@ -27,7 +27,8 @@ Commands:
 Options:
   --version   Show version number                                      [boolean]
   -h, --help  Show help                                                [boolean]
-
+```
+```
 tagfinder find
 
 find resources with specified tags
@@ -41,8 +42,6 @@ Options:
                                                              [string] [required]
   -f, --file     Output search results to file                         [boolean]
   -p, --profile  AWS profile name                                       [string]
-
-
 ```
 
 ## Example

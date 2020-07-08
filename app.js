@@ -1,32 +1,31 @@
 #!/usr/bin/env node
 
-const logic = require("./src/logic");
-const cli = require("./src/cli");
-const fileWrite = require("./src/writeResultsToFile");
+const { findResourcesWithTags } = require("./src/logic");
+const { argv } = require("./src/cli");
+const { writeResultsToFile } = require("./src/writeResultsToFile");
 const { configAWS } = require("./src/configAWS");
 
 const callFind = async () => {
-  const valueArray = cli.argv.value.split(",");
+  const valueArray = argv.value.split(",");
 
-  if (cli.argv.file) {
-    await logic
-      .findResourcesWithTags(cli.argv.key, valueArray)
+  if (argv.file) {
+    await findResourcesWithTags(argv.key, valueArray)
       .then(async r => {
         console.log(JSON.stringify(r, null, 2));
-        await fileWrite.writeResultsToFile(r).then(r => {
+        await writeResultsToFile(r).then(r => {
           console.log(r);
         });
       });
-  } else if (!cli.argv.file) {
-    logic.findResourcesWithTags(cli.argv.key, valueArray).then(r => {
+  } else if (!argv.file) {
+    findResourcesWithTags(argv.key, valueArray).then(r => {
       console.log(JSON.stringify(r, null, 2));
     });
   }
 };
 
-if (cli.argv._.includes("find")) {
-  if (cli.argv.profile) {
-    configAWS(cli.argv.profile);
+if (argv._.includes("find")) {
+  if (argv.profile) {
+    configAWS(argv.profile);
   } else {
     configAWS("default");
   }

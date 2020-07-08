@@ -1,4 +1,4 @@
-const fs = require("fs");
+const { writeFile } = require("fs");
 
 const writeResultsToFile = results => {
   const jsonArray = [];
@@ -12,7 +12,7 @@ const writeResultsToFile = results => {
       resolve("no resources found, file not created");
     });
   }
-  fs.writeFile("results.json", JSON.stringify(jsonArray), err => {
+  writeFile("results.json", JSON.stringify(jsonArray), err => {
     if (err) {
       console.log("\x1b[31mfile creation error\x1b[0m");
       return err;
