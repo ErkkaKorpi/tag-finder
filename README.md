@@ -1,6 +1,14 @@
 # Tag-Finder
 
-tag-finder is a CLI tool to find tagged resources from AWS by specifying key and value with the option to save results into a JSON file 
+Tag-Finder is a CLI tool to find tagged resources from AWS by specifying key and value. By default, results are written to stdout in JSON format.
+
+- ``--key`` argument represents tag key to search resources with
+
+- ```-value``` argument represents tag or tags to search resources with. When using multiple values, provide a comma separated list with no whitespaces: ``key1,key2,key3...``
+
+- ```--file``` argument can be used to write search results to ```results.json``` file in the current working directory
+
+- ``--profile`` argument can be used to get search results from different profiles configured to ```~/.aws/credentials```, if no argument is passed, the default profile is used
 
 ## Installation
 
@@ -10,7 +18,8 @@ tag-finder is a CLI tool to find tagged resources from AWS by specifying key and
 
 ## Usage
 
-```Usage: tagfinder [options]
+```
+Usage: tagfinder [options]
 
 Commands:
   tagfinder find    find resources with specified tags
