@@ -4,9 +4,9 @@ Tag-Finder is a CLI tool to find tagged resources from across all AWS regions by
 
 - ``--key`` argument represents tag key to search resources with
 
-- ```-value``` argument represents tag or tags to search resources with. When using multiple values, provide a comma separated list with no whitespaces: ``key1,key2,key3...``
+- ``--value`` argument represents tag or tags to search resources with. When using multiple values, provide a comma separated list with no whitespaces: ``key1,key2,key3...``
 
-- ```--file``` argument can be used to write search results to ```results.json``` file in the current working directory
+- ``--file`` argument can be used to write search results to ```results.json``` file in the current working directory
 
 - ``--profile`` argument can be used to get search results from different profiles configured to ```~/.aws/credentials```, if no argument is passed, the default profile is used. Tag-Finder depends on finding aws credentials from aforementioned path
 

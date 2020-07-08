@@ -12,6 +12,7 @@
   "author": "Erkka Korpi",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.711.0",
     "boxen": "^4.0.0",
     "chalk": "^2.4.2",
     "yargs": "^14.0.0"
@@ -25,8 +26,7 @@
     "node": ">=8"
   },
   "scripts": {
-    "install-all-packages": "npm install && cd src && npm install",
     "link": "sudo npm link",
-    "install-app": "npm run install-all-packages && echo '\\033[0;35m##### Please provide root password for npm link #####\\033[0m' && npm run link"
+    "install-app": "npm install && echo '\\033[0;35m##### Please provide root password for npm link if prompted #####\\033[0m' && npm run link"
   }
 }
