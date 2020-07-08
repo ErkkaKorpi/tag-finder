@@ -6,8 +6,6 @@ const argv = require("yargs")
     yargs
       .nargs("k", 1)
       .nargs("v", 1)
-      .nargs("p", 1)
-      .nargs("f", 1)
       .options("k", {
         alias: "key",
         demandOption: true,
@@ -23,7 +21,7 @@ const argv = require("yargs")
       })
       .options("f", {
         alias: "file",
-        demandOption: true,
+        demandOption: false,
         describe: "Output search results to file",
         type: "boolean"
       })
@@ -33,7 +31,7 @@ const argv = require("yargs")
         describe: "AWS profile name",
         type: "string"
       })
-      .demandOption(["k", "v", "f"]);
+      .demandOption(["k", "v"]);
   }).argv;
 
 module.exports = { argv };

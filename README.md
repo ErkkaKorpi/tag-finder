@@ -35,7 +35,7 @@ Options:
   -v, --value    Tag value or values to search with (if using multiple values,
                  provide comma separated list with no whitespaces)
                                                              [string] [required]
-  -f, --file     Output search results to file              [boolean] [required]
+  -f, --file     Output search results to file                         [boolean]
   -p, --profile  AWS profile name                                       [string]
 
 ```
