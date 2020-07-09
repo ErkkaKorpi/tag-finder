@@ -13,7 +13,7 @@ Tag-Finder is a CLI tool to find tagged resources from across all AWS regions by
 ## Requirements
 
 - Node.js versions 8 and newer
-- npm versions 5 and never
+- npm versions 3.5.2 and never
 - AWS credentials configured in ```~/.aws/credentials```
  (more information in following link: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
 
