@@ -26,7 +26,7 @@
     "node": ">=8"
   },
   "scripts": {
-    "link": "sudo npm link",
-    "install-app": "npm install && echo '\\033[0;35m##### Please provide root password for npm link if prompted #####\\033[0m' && npm run link"
+    "install-unix": "npm install && echo '\\033[0;35m##### Please provide root password for npm link if prompted #####\\033[0m' && sudo npm link",
+    "install-windows": "npm install && npm link"
   }
 }

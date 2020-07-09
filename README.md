@@ -8,19 +8,22 @@ Tag-Finder is a CLI tool to find tagged resources from across all AWS regions by
 
 - ``--file`` argument can be used to write search results to ```results.json``` file in the current working directory
 
-- ``--profile`` argument can be used to get search results from different profiles configured to ```~/.aws/credentials```, if no argument is passed, the default profile is used. Tag-Finder depends on finding aws credentials from aforementioned path
+- ``--profile`` argument can be used to get search results from different profiles configured to ```.aws/credentials```, if no argument is passed, the default profile is used. Tag-Finder depends on finding aws credentials from aforementioned path
 
 ## Requirements
 
 - Node.js versions 8 and newer
 - npm versions 3.5.2 and never
-- AWS credentials configured in ```~/.aws/credentials```
+- AWS credentials configured in ```.aws/credentials```
  (more information in following link: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
 
 ## Installation
-
-```npm run install-app```
-- Installs dependencies and runs ```npm link``` that creates symbolic link to ```app.js```
+#### macOs / Linux
+```npm run install-unix```
+- Installs dependencies and runs ```npm link``` that creates symbolic link for ```app.js``` in ``/usr/local/bin``
+#### Windows
+```npm run install-windows```
+- Installs dependencies and runs ```npm link``` that creates necessary files in ``%UserProfile%\AppData\Roaming\npm ``
 
 
 ## Usage
