@@ -75,18 +75,17 @@ const findResourcesWithTags = async (key, values) => {
         }
       };
 
-      const taggedResources = await filterSearchResults(key, values);
+      const taggedResources = (await filterSearchResults(key, values)).flat();
 
-      return {
-        region: region.RegionName,
-        resources:
-          taggedResources.length !== 0
-            ? taggedResources
-            : "no resources with specified tags in this region",
-      };
+      if (taggedResources.length !== 0) {
+        return {
+          region: region.RegionName,
+          resources: taggedResources,
+        };
+      }
     });
 
-    return Promise.all(results);
+    return Promise.all(results).then((res) => res.filter((x) => x));
   } catch (e) {
     console.log(
       "\x1b[31mError happened while fetching tags: \x1b[0m",
