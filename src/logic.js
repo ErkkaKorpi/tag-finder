@@ -5,9 +5,9 @@ const findResourcesWithTags = async (key, values) => {
   try {
     const regions = await getAWSRegions();
 
-    const results = regions.map(async region => {
+    const results = regions.map(async (region) => {
       const tagging = new AWS.ResourceGroupsTaggingAPI({
-        region: region.RegionName
+        region: region.RegionName,
       });
 
       const getTaggedResources = async (token, key, values) => {
@@ -15,9 +15,9 @@ const findResourcesWithTags = async (key, values) => {
           TagFilters: [
             {
               Key: key,
-              Values: values
-            }
-          ]
+              Values: values,
+            },
+          ],
         };
 
         if (token !== null) {
@@ -38,16 +38,16 @@ const findResourcesWithTags = async (key, values) => {
         return tagsArray.length !== 0 ? tagsArray : tags;
       };
 
-      const parseResourceNameFromARN = arn => {
+      const parseResourceNameFromARN = (arn) => {
         if (Array.isArray(arn)) {
-          return arn.map(name => {
+          return arn.map((name) => {
             const splittedARN = name.ResourceARN.split(":");
             const resource = splittedARN[2];
             const resourceName = splittedARN[splittedARN.length - 1];
 
             return {
               resourceType: resource,
-              resourceName: resourceName
+              resourceName: resourceName,
             };
           });
         } else {
@@ -57,7 +57,7 @@ const findResourcesWithTags = async (key, values) => {
 
           return {
             resourceType: resource,
-            resourceName: name
+            resourceName: name,
           };
         }
       };
@@ -65,11 +65,11 @@ const findResourcesWithTags = async (key, values) => {
       const filterSearchResults = async (key, values) => {
         const arnsList = await getAllTagResults("", key, values);
         if (Array.isArray(arnsList)) {
-          return arnsList.map(arn => {
+          return arnsList.map((arn) => {
             return parseResourceNameFromARN(arn);
           });
         } else {
-          return arnsList.ResourceTagMappingList.map(arn => {
+          return arnsList.ResourceTagMappingList.map((arn) => {
             return parseResourceNameFromARN(arn);
           });
         }
@@ -82,7 +82,7 @@ const findResourcesWithTags = async (key, values) => {
         resources:
           taggedResources.length !== 0
             ? taggedResources
-            : "no resources with specified tags in this region"
+            : "no resources with specified tags in this region",
       };
     });
 

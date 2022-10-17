@@ -2,10 +2,10 @@ const AWS = require("aws-sdk");
 const { existsSync } = require("fs");
 const { homedir } = require("os");
 
-const configAWS = profile => {
-  if (existsSync(`${homedir}/.aws/credentials`)) {
+const configAWS = (profile = null) => {
+  if (profile !== null && existsSync(`${homedir}/.aws/credentials`)) {
     AWS.config.credentials = new AWS.SharedIniFileCredentials({
-      profile: profile
+      profile: profile,
     });
   } else {
     console.log(
